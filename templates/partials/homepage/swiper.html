@@ -1,0 +1,52 @@
+{%set sdocs = payload[0] %}
+{%set sdict = payload[1] %}
+{% if sdocs[0] %}
+<link rel="stylesheet" href="/swiper-bundle.min.css">
+<script>
+  var script = document.createElement("script");
+  script.src = "/swiper-bundle.min.js";
+  script.onload = function () {
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      {% if sdict['loop'] %}
+      loop:true,
+      {% endif %}
+      {%if sdict['autoplay'] %}
+      autoplay: {
+        delay: {{ sdict['interval'] }},
+        disableOnInteraction: false,
+      },
+      {% endif %}
+      autoHeight: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  };
+  document.body.appendChild(script);
+</script>
+<div class="section">
+  <div class="section__body">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {%- for doc in sdocs -%}
+        <div class="swiper-slide">
+          <a href="{{ doc['url'] }}" title="{{ doc['title'] }}">
+            <img src="{{ doc['img'] }}" style="width: 100%" loading="lazy" />
+          </a>
+        </div>
+        {%- endfor -%}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+{% endif %}

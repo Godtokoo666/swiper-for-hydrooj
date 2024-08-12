@@ -1,0 +1,40 @@
+{% extends "domain_base.html" %}
+{% block domain_content %}
+<div class="section">
+  <div class="section__body typo">
+    <form method="post">
+    <div class="row">
+      <div class="medium-10 columns form__item">
+        <label class="checkbox">
+          <input type="checkbox" name="loop" value="on" class="checkbox"
+            {%- if ssdict.loop %} checked{% endif -%}
+          >{{ _('swiper_loop') }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="autoplay" value="on" class="checkbox"
+          {%- if ssdict.autoplay %} checked{% endif -%}
+          >{{ _('swiper_autoplay') }}
+        </label>
+        <label>
+          <p>{{ _('swiper_interval') }}（以毫秒为单位, 勾选{{ _('swiper_autoplay') }}后生效）</p>
+          <input 
+            name="interval" placeholder="以毫秒为单位"
+            value="{{ ssdict.interval|default('') }}"
+            class="textbox" autofocus>
+        </label>
+        <label>
+          {{_('swiper_config')}}
+          <textarea id="config" data-json name="value" placeholder="" class="textbox">{% if value %}{{ value }}{% else %}{% include 'swiper_default.json' %}{% endif %}</textarea>
+        </label>
+        <pre class="help-text" id="info"></pre>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="medium-10 columns form__item end">
+        <button id="submit" value="update" class="rounded primary button" type="submit">{%if initialize %}{{_('initialize')}}{% else %}{{ _('Save All Changes') }}{% endif %}</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

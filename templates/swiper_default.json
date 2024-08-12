@@ -1,0 +1,12 @@
+[
+    {
+      "title": "Slide 2",
+      "img": "image1.jpg",
+      "url": "http://example.com/1"
+    },
+    {
+      "title": "Slide 2",
+      "img": "image2.jpg",
+      "url": "http://example.com/2"
+    }
+]

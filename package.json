@@ -1,0 +1,11 @@
+{
+  "name": "swiper",
+  "version": "0.0.1",
+  "description": "Swiper for QLUOJ",
+  "main": "index.ts",
+  "author": "Godtokoo<admin@funfs.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "hydrooj": "^4.12.2"
+  }
+}
