@@ -12,7 +12,7 @@ hydrooj addon add /root/.hydro/swiper-for-hydrooj
 
 ### 1.全局启用Swiper
 
-控制面板->hydrooj->首页
+控制面板->系统设置->hydrooj->首页
 
 在适当位置加入
 ```config
